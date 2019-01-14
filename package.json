@@ -5,7 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^3.8.3",
     "@material/react-button": "^0.8.0",
+    "@material/react-icon-button": "^0.8.0",
     "@material/react-list": "^0.8.0",
+    "@material/react-material-icon": "^0.8.0",
     "@material/react-menu-surface": "^0.8.0",
     "@material/react-text-field": "^0.8.0",
     "react": "^16.7.0",

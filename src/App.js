@@ -22,11 +22,15 @@ class App extends Component {
     });
   }
 
+  itemSelected(item){
+    console.log(item)
+  }
+
   render() {
     const { list, title } = this.state;
-    
+
     return (
-      <Dropdown title={title} items={list}/>
+      <Dropdown title={title} items={list} selectItem={this.itemSelected}/>
     );
   }
 }
