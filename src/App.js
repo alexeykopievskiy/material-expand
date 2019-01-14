@@ -24,8 +24,7 @@ class App extends Component {
 
   render() {
     const { list, title } = this.state;
-
-    console.log(list, title)
+    
     return (
       <Dropdown title={title} items={list}/>
     );

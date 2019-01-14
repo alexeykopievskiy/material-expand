@@ -1,45 +1,40 @@
 import React, { Component } from 'react';
 import TextField, { Input } from '@material/react-text-field';
 import MenuSurface, {Corner} from '@material/react-menu-surface';
-import Button from '@material/react-button';
+import List, {ListItem, ListItemText} from '@material/react-list';
 
 import '@material/react-menu-surface/dist/menu-surface.css';
 import '@material/react-text-field/dist/text-field.css';
+import '@material/react-list/dist/list.css';
 
 class Dropdown extends Component {
     state = {
         open: false
     }
 
-    setAnchorElement = (element) => {
-        if (this.state.anchorElement) {
-          return;
-        }
-        this.setState({anchorElement: element});
-      }
-
     render() {
-        console.log(this.props, 'props')
         const { title, items } = this.props;
 
         return (
-            
-            <div className='mdc-menu-surface--anchor'
+            <div 
+                className='mdc-menu-surface--anchor'
                 ref={this.setAnchorElement}
             >
                 <TextField label={title}>
                     <Input onClick={() => this.setState({open: true})}/>
                 </TextField>
-
                 <MenuSurface
-                open={this.state.open}
-                anchorCorner={Corner.BOTTOM_LEFT}
-                onClose={() => this.setState({open: false})}
-                anchorElement={this.state.anchorElement}
+                    open={this.state.open}
+                    anchorCorner={Corner.BOTTOM_LEFT}
+                    onClose={() => this.setState({open: false})}
                 >
-                <img
-                    style={{maxWidth: '20vw', maxHeight: '20vh'}}
-                    src='http://images.my.photo.url' />
+                    <List>
+                        { items.map((item, key) => (
+                            <ListItem key={key}>
+                                <ListItemText primaryText={item.title}/>
+                            </ListItem>
+                        )) }
+                    </List>
                 </MenuSurface>
             </div>
         );
