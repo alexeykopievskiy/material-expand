@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   itemSelected(item){
+    // Do anything...
     console.log(item)
   }
 
